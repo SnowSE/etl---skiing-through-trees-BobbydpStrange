@@ -21,7 +21,7 @@ namespace Skiing_Amongst_Trees
         {
             string line;
 
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\aubrey.oblad\Source\Repos\etl---skiing-through-trees-BobbydpStrange\Skiing_Amongst_Trees\TreeMap.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\aubrey.oblad\source\repos\ski\Skiing_Amongst_Trees\TreeMap.txt");//**************** With this line you need to coppy the exact path for the text file.
             while ((line = file.ReadLine()) != null)
             {
                 //Console.WriteLine(line);
