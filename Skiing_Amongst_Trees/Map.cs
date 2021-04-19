@@ -7,29 +7,23 @@ namespace Skiing_Amongst_Trees
     class Map
     {
         private int count = 0;
-        private char[,] hill  = new char[323,31];
+        private char[,] hill = new char[323, 31];
         private int x = 0;
         private int y = 0;
-        
+
         public Map()
         {
-
-
-
-
             hill = extract(hill);
         }
 
         private char[,] extract(char[,] hill)
         {
             string line;
-            //int countline = 0;
 
-
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\Aubrey Oblad\source\repos\Ski\Skiing_Amongst_Trees\TreeMap.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\aubrey.oblad\Source\Repos\etl---skiing-through-trees-BobbydpStrange\Skiing_Amongst_Trees\TreeMap.txt");
             while ((line = file.ReadLine()) != null)
             {
-
+                //Console.WriteLine(line);
                 foreach (char item in line)
                 {
                     checkCords();
@@ -37,10 +31,9 @@ namespace Skiing_Amongst_Trees
                     //System.Console.WriteLine(hill[y, x]);
                     x++;
 
-                    
-                    if (x == 30)
+
+                    if (x == 31)
                     {
-                        //countline++;
                         y++;
                         //System.Console.WriteLine(y);
                     }
@@ -64,24 +57,24 @@ namespace Skiing_Amongst_Trees
         }
         public void print()
         {
-            for(int i = 0; i <= 322; i++)
+            for (int i = 0; i < 323; i++)
             {
-                for (int j=0; j <= 30; j++)
+                for (int j = 0; j < 32; j++)
                 {
                     System.Console.Write(hill[i, j]);
-                    
+
                 }
                 System.Console.WriteLine();
             }
         }
 
-        public int isTree (int x, int y)
+        public int isTree(int x, int y)
         {
-           if(hill[y,x] == '.')
+            if (hill[y, x] == '.')
             {
                 hill[y, x] = 'O';
             }
-            
+
             if (hill[y, x] == '#')
             {
                 hill[y, x] = 'X';
@@ -93,7 +86,7 @@ namespace Skiing_Amongst_Trees
             }
             return count;
         }
-        public char[,] getHill ()
+        public char[,] getHill()
         {
             return hill;
         }
