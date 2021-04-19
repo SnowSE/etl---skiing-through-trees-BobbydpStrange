@@ -16,6 +16,7 @@ namespace Skiing_Amongst_Trees
             hill = extract(hill);
         }
 
+        //Gets the layout of the trees from the text file and put it into a multidementional array.
         private char[,] extract(char[,] hill)
         {
             string line;
@@ -27,15 +28,12 @@ namespace Skiing_Amongst_Trees
                 foreach (char item in line)
                 {
                     checkCords();
-                    hill[y, x] = item;
-                    //System.Console.WriteLine(hill[y, x]);
+                    hill[y, x] = item;     
                     x++;
-
 
                     if (x == 31)
                     {
-                        y++;
-                        //System.Console.WriteLine(y);
+                        y++;                        
                     }
                 }
             }
@@ -43,7 +41,7 @@ namespace Skiing_Amongst_Trees
             return hill;
         }
 
-
+        //Makes sure that if when transfering the information from the text file that if it reaches the end of the line of the array it goes to the next one. 
         private void checkCords()
         {
             if (x == 31)
@@ -55,6 +53,8 @@ namespace Skiing_Amongst_Trees
                 y = 0;
             }
         }
+
+        //This is a way to print what is in the array.
         public void print()
         {
             for (int i = 0; i < 323; i++)
@@ -68,16 +68,17 @@ namespace Skiing_Amongst_Trees
             }
         }
 
+        //This checks to make sure if the skier hit a tree and if they did the count for trees hit will increment.
         public int isTree(int x, int y)
         {
             if (hill[y, x] == '.')
             {
-                hill[y, x] = 'O';
+                hill[y, x] = 'O'; //this is if you print the map it will show O for where the skier was but if there wasn't a tree.
             }
 
             if (hill[y, x] == '#')
             {
-                hill[y, x] = 'X';
+                hill[y, x] = 'X';//this is if you print the map it will show X for where the skier was and hit a tree.
                 count++;
                 if (y == 322)
                 {
