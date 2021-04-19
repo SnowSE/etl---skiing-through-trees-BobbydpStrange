@@ -15,6 +15,13 @@ namespace Skiing_Amongst_Trees
         {
             slopeX = slopex;
             slopeY = slopey;
+
+            if (slopeX <= 0 || slopeY <= 0)
+            {
+                System.Console.WriteLine("Invalid, negitive slope! Cant go up!");
+            }
+
+            
         }
 
         public int getPositionX()
@@ -28,14 +35,19 @@ namespace Skiing_Amongst_Trees
 
         public void movePosition()
         {
-           if (positionY != 322)
+
+           if (positionY + slopeY <= 322)
             {
                 positionX += slopeX;
                 positionY += slopeY;
+
+
+
             }
             if (positionX >= 31)
             {
-                positionX = positionX % slopeX;
+                positionX = (positionX - 30)-1;
+              
             }
             else
             {
